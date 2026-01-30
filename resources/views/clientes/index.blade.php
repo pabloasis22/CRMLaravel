@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('layouts.app')
 
 @section('title', 'Clientes')
 
@@ -6,7 +6,7 @@
     <h1>Gestión de Clientes</h1>
 @endsection
 
-@section('content')
+@section('content_body')
     <div class="row">
         <div class="col-md-12">
             <div class="card">

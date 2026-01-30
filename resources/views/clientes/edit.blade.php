@@ -1,12 +1,12 @@
-@extends('adminlte::page')
+@extends('layouts.app')
 
 @section('title', 'Editar Cliente')
 
 @section('content_header')
     <h1>Editar Cliente</h1>
-@stop
+@endsection
 
-@section('content')
+@section('content_body')
     <div class="row">
         <div class="col-md-8">
             <div class="card">
