@@ -1,5 +1,7 @@
 # CRM Machine (Laravel + AdminLTE)
 
+![CRM Machine Header](./public/images/crm-laravel-header.svg)
+
 ## Descripción del proyecto
 
 CRM Machine es un sistema CRM desarrollado en Laravel con interfaz AdminLTE. Incluye módulos CRUD para Clientes, Empleados, Proveedores, Productos y Altos Cargos e incluye una base de datos MySQL para la gestión de la información. La finalidad del proyecto es centralizar y agilizar la administración de operaciones comerciales, permitiendo registrar, consultar y mantener datos de forma ordenada para apoyar la toma de decisiones y el seguimiento del negocio.
