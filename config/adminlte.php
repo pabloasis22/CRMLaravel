@@ -331,6 +331,11 @@ return [
             'url' => 'puestos',
             'icon' => 'fas fa-fw fa-briefcase',
         ],
+        [
+            'text' => 'Empleados',
+            'url' => 'empleados',
+            'icon' => 'fas fa-fw fa-user-tie',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

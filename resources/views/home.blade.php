@@ -35,6 +35,11 @@
                                 <i class="fas fa-briefcase"></i> Puestos
                             </button>
                         </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="empleados-tab" data-bs-toggle="tab" data-bs-target="#empleados" type="button" role="tab" aria-controls="empleados" aria-selected="false">
+                                <i class="fas fa-user-tie"></i> Empleados
+                            </button>
+                        </li>
                     </ul>
 
                     <div class="tab-content" id="myTabContent">
@@ -190,6 +195,52 @@
                                 @else
                                     <p class="alert alert-info">No hay puestos registrados</p>
                                     <a href="{{ route('puestos.create') }}" class="btn btn-success">Crear primer puesto</a>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Pestaña Empleados -->
+                        <div class="tab-pane fade" id="empleados" role="tabpanel" aria-labelledby="empleados-tab">
+                            <div class="mt-3">
+                                <h5>Últimos Empleados</h5>
+                                @if ($empleados->count())
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Nombre</th>
+                                                <th>Email</th>
+                                                <th>Puesto</th>
+                                                <th>Salario</th>
+                                                <th>Estado</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($empleados as $empleado)
+                                                <tr>
+                                                    <td>{{ $empleado->id }}</td>
+                                                    <td>{{ $empleado->nombre }} {{ $empleado->apellido }}</td>
+                                                    <td>{{ $empleado->email }}</td>
+                                                    <td>{{ $empleado->puesto->nombre ?? 'N/A' }}</td>
+                                                    <td>${{ number_format($empleado->salario, 2) }}</td>
+                                                    <td>
+                                                        <span class="badge badge-{{ $empleado->estado == 'activo' ? 'success' : 'secondary' }}">
+                                                            {{ ucfirst($empleado->estado) }}
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="{{ route('empleados.show', $empleado->id) }}" class="btn btn-sm btn-info">Ver</a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    <a href="{{ route('empleados.index') }}" class="btn btn-primary">Ver todos los empleados</a>
+                                    <a href="{{ route('empleados.create') }}" class="btn btn-success">Crear nuevo empleado</a>
+                                @else
+                                    <p class="alert alert-info">No hay empleados registrados</p>
+                                    <a href="{{ route('empleados.create') }}" class="btn btn-success">Crear primer empleado</a>
                                 @endif
                             </div>
                         </div>

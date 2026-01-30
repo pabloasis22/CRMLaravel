@@ -34,7 +34,7 @@ Route::get('/proveedores/{proveedor}/edit', [App\Http\Controllers\ProveedoresCon
 Route::put('/proveedores/{proveedor}', [App\Http\Controllers\ProveedoresController::class, 'update'])->name('proveedores.update');
 Route::delete('/proveedores/{proveedor}', [App\Http\Controllers\ProveedoresController::class, 'destroy'])->name('proveedores.destroy');
 
-// Rutas de puestos de trabajo
+// Rutas de puestos de altos cargos
 Route::get('/puestos', [App\Http\Controllers\PuestosController::class, 'index'])->name('puestos.index');
 Route::get('/puestos/create', [App\Http\Controllers\PuestosController::class, 'create'])->name('puestos.create');
 Route::post('/puestos', [App\Http\Controllers\PuestosController::class, 'store'])->name('puestos.store');
@@ -42,3 +42,12 @@ Route::get('/puestos/{puesto}', [App\Http\Controllers\PuestosController::class, 
 Route::get('/puestos/{puesto}/edit', [App\Http\Controllers\PuestosController::class, 'edit'])->name('puestos.edit');
 Route::put('/puestos/{puesto}', [App\Http\Controllers\PuestosController::class, 'update'])->name('puestos.update');
 Route::delete('/puestos/{puesto}', [App\Http\Controllers\PuestosController::class, 'destroy'])->name('puestos.destroy');
+
+// Rutas de empleados
+Route::get('/empleados', [App\Http\Controllers\EmpleadosController::class, 'index'])->name('empleados.index');
+Route::get('/empleados/create', [App\Http\Controllers\EmpleadosController::class, 'create'])->name('empleados.create');
+Route::post('/empleados', [App\Http\Controllers\EmpleadosController::class, 'store'])->name('empleados.store');
+Route::get('/empleados/{empleado}', [App\Http\Controllers\EmpleadosController::class, 'show'])->name('empleados.show');
+Route::get('/empleados/{empleado}/edit', [App\Http\Controllers\EmpleadosController::class, 'edit'])->name('empleados.edit');
+Route::put('/empleados/{empleado}', [App\Http\Controllers\EmpleadosController::class, 'update'])->name('empleados.update');
+Route::delete('/empleados/{empleado}', [App\Http\Controllers\EmpleadosController::class, 'destroy'])->name('empleados.destroy');

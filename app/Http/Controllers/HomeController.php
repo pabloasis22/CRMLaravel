@@ -6,6 +6,7 @@ use App\Models\Clientes;
 use App\Models\Productos;
 use App\Models\Proveedores;
 use App\Models\Puestos;
+use App\Models\Empleados;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -31,7 +32,8 @@ class HomeController extends Controller
         $productos = Productos::orderByDesc('id')->take(5)->get();
         $proveedores = Proveedores::orderByDesc('id')->take(5)->get();
         $puestos = Puestos::orderByDesc('id')->take(5)->get();
+        $empleados = Empleados::with('puesto')->orderByDesc('id')->take(5)->get();
 
-        return view('home', compact('clientes', 'productos', 'proveedores', 'puestos'));
+        return view('home', compact('clientes', 'productos', 'proveedores', 'puestos', 'empleados'));
     }
 }
