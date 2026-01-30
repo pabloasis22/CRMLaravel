@@ -2,7 +2,7 @@
 
 @section('content_body')
 <div class="container">
-    <h1>Crear Puesto</h1>
+    <h1>Crear Alto Cargo</h1>
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -26,7 +26,7 @@
             <textarea class="form-control" id="descripcion" name="descripcion" rows="3">{{ old('descripcion') }}</textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Crear Puesto</button>
+        <button type="submit" class="btn btn-primary">Crear Alto Cargo</button>
     </form>
 </div>
 @endsection

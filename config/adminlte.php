@@ -327,7 +327,7 @@ return [
             'icon' => 'fas fa-fw fa-truck',
         ],
         [
-            'text' => 'Puestos',
+            'text' => 'Altos Cargos',
             'url' => 'puestos',
             'icon' => 'fas fa-fw fa-briefcase',
         ],

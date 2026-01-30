@@ -2,10 +2,10 @@
 
 @section('content_body')
 <div class="container">
-    <h1>Puestos de Trabajo</h1>
+    <h1>Altos Cargos</h1>
 
     <a href="{{ route('puestos.create') }}" class="btn btn-success mb-3">
-        <i class="fas fa-plus"></i> Crear Puesto
+        <i class="fas fa-plus"></i> Crear Alto Cargo
     </a>
 
     @if(session('success'))
@@ -42,7 +42,7 @@
             </tbody>
         </table>
     @else
-        <p class="alert alert-info">No hay puestos registrados</p>
+        <p class="alert alert-info">No hay altos cargos registrados</p>
     @endif
 </div>
 @endsection

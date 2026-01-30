@@ -2,13 +2,13 @@
 
 @section('content_body')
 <div class="container">
-    <h1>Detalles del Puesto</h1>
+    <h1>Detalles del Alto Cargo</h1>
 
     <div class="row">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Información del Puesto</h3>
+                    <h3 class="card-title">Información del Alto Cargo</h3>
                 </div>
                 <div class="card-body">
                     <dl class="row">

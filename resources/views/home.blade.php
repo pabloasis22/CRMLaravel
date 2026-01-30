@@ -32,7 +32,7 @@
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="puestos-tab" data-bs-toggle="tab" data-bs-target="#puestos" type="button" role="tab" aria-controls="puestos" aria-selected="false">
-                                <i class="fas fa-briefcase"></i> Puestos
+                                <i class="fas fa-briefcase"></i> Altos Cargos
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
@@ -166,7 +166,7 @@
                         <!-- Pestaña Puestos -->
                         <div class="tab-pane fade" id="puestos" role="tabpanel" aria-labelledby="puestos-tab">
                             <div class="mt-3">
-                                <h5>Últimos Puestos</h5>
+                                <h5>Últimos Altos Cargos</h5>
                                 @if ($puestos->count())
                                     <table class="table table-striped">
                                         <thead>
@@ -190,11 +190,11 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    <a href="{{ route('puestos.index') }}" class="btn btn-primary">Ver todos los puestos</a>
-                                    <a href="{{ route('puestos.create') }}" class="btn btn-success">Crear nuevo puesto</a>
+                                    <a href="{{ route('puestos.index') }}" class="btn btn-primary">Ver todos los altos cargos</a>
+                                    <a href="{{ route('puestos.create') }}" class="btn btn-success">Crear nuevo alto cargo</a>
                                 @else
-                                    <p class="alert alert-info">No hay puestos registrados</p>
-                                    <a href="{{ route('puestos.create') }}" class="btn btn-success">Crear primer puesto</a>
+                                    <p class="alert alert-info">No hay altos cargos registrados</p>
+                                    <a href="{{ route('puestos.create') }}" class="btn btn-success">Crear primer alto cargo</a>
                                 @endif
                             </div>
                         </div>
