@@ -32,7 +32,7 @@ class HomeController extends Controller
         $productos = Productos::orderByDesc('id')->take(5)->get();
         $proveedores = Proveedores::orderByDesc('id')->take(5)->get();
         $puestos = Puestos::orderByDesc('id')->take(5)->get();
-        $empleados = Empleados::with('puesto')->orderByDesc('id')->take(5)->get();
+        $empleados = Empleados::orderByDesc('id')->take(5)->get();
 
         return view('home', compact('clientes', 'productos', 'proveedores', 'puestos', 'empleados'));
     }

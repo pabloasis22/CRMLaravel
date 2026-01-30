@@ -10,14 +10,13 @@ class EmpleadosController extends Controller
 {
     public function index()
     {
-        $empleados = Empleados::with('puesto')->get();
+        $empleados = Empleados::all();
         return view('empleados.index', compact('empleados'));
     }
 
     public function create()
     {
-        $puestos = Puestos::all();
-        return view('empleados.create', compact('puestos'));
+        return view('empleados.create');
     }
 
     public function store(Request $request)
@@ -27,7 +26,7 @@ class EmpleadosController extends Controller
             'apellido' => 'required|string|max:255',
             'email' => 'required|email|unique:empleados,email',
             'telefono' => 'nullable|string|max:20',
-            'puesto_id' => 'required|exists:puestos,id',
+            'puesto' => 'required|string|max:255',
             'fecha_contratacion' => 'required|date',
             'salario' => 'required|numeric|min:0',
             'estado' => 'required|in:activo,inactivo',
@@ -41,14 +40,12 @@ class EmpleadosController extends Controller
 
     public function show(Empleados $empleado)
     {
-        $empleado->load('puesto');
         return view('empleados.show', compact('empleado'));
     }
 
     public function edit(Empleados $empleado)
     {
-        $puestos = Puestos::all();
-        return view('empleados.edit', compact('empleado', 'puestos'));
+        return view('empleados.edit', compact('empleado'));
     }
 
     public function update(Request $request, Empleados $empleado)
@@ -58,7 +55,7 @@ class EmpleadosController extends Controller
             'apellido' => 'required|string|max:255',
             'email' => 'required|email|unique:empleados,email,' . $empleado->id,
             'telefono' => 'nullable|string|max:20',
-            'puesto_id' => 'required|exists:puestos,id',
+            'puesto' => 'required|string|max:255',
             'fecha_contratacion' => 'required|date',
             'salario' => 'required|numeric|min:0',
             'estado' => 'required|in:activo,inactivo',

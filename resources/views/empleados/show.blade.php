@@ -25,10 +25,10 @@
                         <dd class="col-sm-9">{{ $empleado->telefono ?? 'N/A' }}</dd>
 
                         <dt class="col-sm-3">Puesto:</dt>
-                        <dd class="col-sm-9">{{ $empleado->puesto->nombre ?? 'N/A' }}</dd>
+                        <dd class="col-sm-9">{{ $empleado->puesto }}</dd>
 
                         <dt class="col-sm-3">Fecha de Contratación:</dt>
-                        <dd class="col-sm-9">{{ $empleado->fecha_contratacion->format('d/m/Y') }}</dd>
+                        <dd class="col-sm-9">{{ is_object($empleado->fecha_contratacion) ? $empleado->fecha_contratacion->format('d/m/Y') : date('d/m/Y', strtotime($empleado->fecha_contratacion)) }}</dd>
 
                         <dt class="col-sm-3">Salario:</dt>
                         <dd class="col-sm-9">${{ number_format($empleado->salario, 2) }}</dd>
@@ -41,7 +41,7 @@
                         </dd>
 
                         <dt class="col-sm-3">Fecha Creación:</dt>
-                        <dd class="col-sm-9">{{ $empleado->created_at->format('d/m/Y H:i') }}</dd>
+                        <dd class="col-sm-9">{{ is_object($empleado->created_at) ? $empleado->created_at->format('d/m/Y H:i') : date('d/m/Y H:i', strtotime($empleado->created_at)) }}</dd>
                     </dl>
                 </div>
                 <div class="card-footer">

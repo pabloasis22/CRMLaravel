@@ -51,21 +51,14 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="puesto_id">Puesto</label>
-                    <select class="form-control" id="puesto_id" name="puesto_id" required>
-                        <option value="">Seleccione un puesto</option>
-                        @foreach($puestos as $puesto)
-                            <option value="{{ $puesto->id }}" {{ (old('puesto_id', $empleado->puesto_id) == $puesto->id) ? 'selected' : '' }}>
-                                {{ $puesto->nombre }}
-                            </option>
-                        @endforeach
-                    </select>
+                    <label for="puesto">Puesto</label>
+                    <input type="text" class="form-control" id="puesto" name="puesto" value="{{ old('puesto', $empleado->puesto) }}" placeholder="Ej: Director, Gerente, Analista..." required>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="fecha_contratacion">Fecha de Contratación</label>
-                    <input type="date" class="form-control" id="fecha_contratacion" name="fecha_contratacion" value="{{ old('fecha_contratacion', $empleado->fecha_contratacion->format('Y-m-d')) }}" required>
+                    <input type="date" class="form-control" id="fecha_contratacion" name="fecha_contratacion" value="{{ old('fecha_contratacion', is_object($empleado->fecha_contratacion) ? $empleado->fecha_contratacion->format('Y-m-d') : substr($empleado->fecha_contratacion, 0, 10)) }}" required>
                 </div>
             </div>
         </div>

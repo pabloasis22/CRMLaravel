@@ -13,7 +13,7 @@ class Empleados extends Model
         'apellido',
         'email',
         'telefono',
-        'puesto_id',
+        'puesto',
         'fecha_contratacion',
         'salario',
         'estado',
@@ -25,9 +25,4 @@ class Empleados extends Model
     ];
 
     public $timestamps = true;
-
-    public function puesto()
-    {
-        return $this->belongsTo(Puestos::class, 'puesto_id');
-    }
 }

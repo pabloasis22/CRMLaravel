@@ -222,7 +222,7 @@
                                                     <td>{{ $empleado->id }}</td>
                                                     <td>{{ $empleado->nombre }} {{ $empleado->apellido }}</td>
                                                     <td>{{ $empleado->email }}</td>
-                                                    <td>{{ $empleado->puesto->nombre ?? 'N/A' }}</td>
+                                                    <td>{{ $empleado->puesto }}</td>
                                                     <td>${{ number_format($empleado->salario, 2) }}</td>
                                                     <td>
                                                         <span class="badge badge-{{ $empleado->estado == 'activo' ? 'success' : 'secondary' }}">
