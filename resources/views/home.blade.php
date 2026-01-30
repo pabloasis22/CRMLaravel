@@ -25,6 +25,16 @@
                                 <i class="fas fa-box"></i> Productos
                             </button>
                         </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="proveedores-tab" data-bs-toggle="tab" data-bs-target="#proveedores" type="button" role="tab" aria-controls="proveedores" aria-selected="false">
+                                <i class="fas fa-truck"></i> Proveedores
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="puestos-tab" data-bs-toggle="tab" data-bs-target="#puestos" type="button" role="tab" aria-controls="puestos" aria-selected="false">
+                                <i class="fas fa-briefcase"></i> Puestos
+                            </button>
+                        </li>
                     </ul>
 
                     <div class="tab-content" id="myTabContent">
@@ -104,6 +114,82 @@
                                 @else
                                     <p class="alert alert-info">No hay productos registrados</p>
                                     <a href="{{ route('productos.create') }}" class="btn btn-success">Crear primer producto</a>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Pestaña Proveedores -->
+                        <div class="tab-pane fade" id="proveedores" role="tabpanel" aria-labelledby="proveedores-tab">
+                            <div class="mt-3">
+                                <h5>Últimos Proveedores</h5>
+                                @if ($proveedores->count())
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Nombre</th>
+                                                <th>Contacto</th>
+                                                <th>Email</th>
+                                                <th>Teléfono</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($proveedores as $proveedor)
+                                                <tr>
+                                                    <td>{{ $proveedor->id }}</td>
+                                                    <td>{{ $proveedor->nombre }}</td>
+                                                    <td>{{ $proveedor->contacto ?? 'N/A' }}</td>
+                                                    <td>{{ $proveedor->email }}</td>
+                                                    <td>{{ $proveedor->telefono ?? 'N/A' }}</td>
+                                                    <td>
+                                                        <a href="{{ route('proveedores.show', $proveedor->id) }}" class="btn btn-sm btn-info">Ver</a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    <a href="{{ route('proveedores.index') }}" class="btn btn-primary">Ver todos los proveedores</a>
+                                    <a href="{{ route('proveedores.create') }}" class="btn btn-success">Crear nuevo proveedor</a>
+                                @else
+                                    <p class="alert alert-info">No hay proveedores registrados</p>
+                                    <a href="{{ route('proveedores.create') }}" class="btn btn-success">Crear primer proveedor</a>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Pestaña Puestos -->
+                        <div class="tab-pane fade" id="puestos" role="tabpanel" aria-labelledby="puestos-tab">
+                            <div class="mt-3">
+                                <h5>Últimos Puestos</h5>
+                                @if ($puestos->count())
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Nombre</th>
+                                                <th>Descripción</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($puestos as $puesto)
+                                                <tr>
+                                                    <td>{{ $puesto->id }}</td>
+                                                    <td>{{ $puesto->nombre }}</td>
+                                                    <td>{{ $puesto->descripcion ? \Illuminate\Support\Str::limit($puesto->descripcion, 60) : 'N/A' }}</td>
+                                                    <td>
+                                                        <a href="{{ route('puestos.show', $puesto->id) }}" class="btn btn-sm btn-info">Ver</a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    <a href="{{ route('puestos.index') }}" class="btn btn-primary">Ver todos los puestos</a>
+                                    <a href="{{ route('puestos.create') }}" class="btn btn-success">Crear nuevo puesto</a>
+                                @else
+                                    <p class="alert alert-info">No hay puestos registrados</p>
+                                    <a href="{{ route('puestos.create') }}" class="btn btn-success">Crear primer puesto</a>
                                 @endif
                             </div>
                         </div>

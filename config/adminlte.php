@@ -321,6 +321,16 @@ return [
             'url' => 'productos',
             'icon' => 'fas fa-fw fa-box',
         ],
+        [
+            'text' => 'Proveedores',
+            'url' => 'proveedores',
+            'icon' => 'fas fa-fw fa-truck',
+        ],
+        [
+            'text' => 'Puestos',
+            'url' => 'puestos',
+            'icon' => 'fas fa-fw fa-briefcase',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
