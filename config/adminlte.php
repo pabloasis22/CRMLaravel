@@ -314,7 +314,7 @@ return [
         [
             'text' => 'Clientes',
             'url' => 'clientes',
-            'icon' => 'far fa-fw fa-users',
+            'icon' => 'fas fa-fw fa-users',
         ],
         [
             'text' => 'Productos',
