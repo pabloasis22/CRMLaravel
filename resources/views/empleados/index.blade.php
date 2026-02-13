@@ -10,10 +10,11 @@
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
-            <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    @endif
 
     @if($empleados->count())
-        <table id="empleados-table" class="table table-striped">
+        <div class="table-responsive" style="max-height: 70vh; overflow-y: auto;">
+            <table id="empleados-table" class="table table-striped">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -47,22 +48,11 @@
                                 <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar empleado?')">Eliminar</button>
                             </form>
                         </td>
-            <!-- DataTables JS -->
-            <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-            <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-            <script>
-                $(document).ready(function() {
-                    $('#empleados-table').DataTable({
-                        language: {
-                            url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'
-                        }
-                    });
-                });
-            </script>
                     </tr>
                 @endforeach
             </tbody>
-        </table>
+            </table>
+        </div>
         <script>
             $(document).ready(function() {
                 $('#empleados-table').DataTable({
