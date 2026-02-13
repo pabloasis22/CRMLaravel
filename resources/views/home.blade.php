@@ -16,29 +16,29 @@
 
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="clientes-tab" data-bs-toggle="tab" data-bs-target="#clientes" type="button" role="tab" aria-controls="clientes" aria-selected="true">
+                            <a class="nav-link" href="{{ route('clientes.index') }}">
                                 <i class="fas fa-users"></i> Clientes
-                            </button>
+                            </a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="productos-tab" data-bs-toggle="tab" data-bs-target="#productos" type="button" role="tab" aria-controls="productos" aria-selected="false">
+                            <a class="nav-link" href="{{ route('productos.index') }}">
                                 <i class="fas fa-box"></i> Productos
-                            </button>
+                            </a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="proveedores-tab" data-bs-toggle="tab" data-bs-target="#proveedores" type="button" role="tab" aria-controls="proveedores" aria-selected="false">
+                            <a class="nav-link" href="{{ route('proveedores.index') }}">
                                 <i class="fas fa-truck"></i> Proveedores
-                            </button>
+                            </a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="puestos-tab" data-bs-toggle="tab" data-bs-target="#puestos" type="button" role="tab" aria-controls="puestos" aria-selected="false">
+                            <a class="nav-link" href="{{ route('puestos.index') }}">
                                 <i class="fas fa-briefcase"></i> Altos Cargos
-                            </button>
+                            </a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="empleados-tab" data-bs-toggle="tab" data-bs-target="#empleados" type="button" role="tab" aria-controls="empleados" aria-selected="false">
+                            <a class="nav-link" href="{{ route('empleados.index') }}">
                                 <i class="fas fa-user-tie"></i> Empleados
-                            </button>
+                            </a>
                         </li>
                     </ul>
 

@@ -17,7 +17,7 @@
                 </div>
                 <div class="card-body">
                     @if($clientes->count())
-                        <table class="table table-striped table-hover">
+                        <table id="clientes-table" class="table table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -50,6 +50,15 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <script>
+                            $(document).ready(function() {
+                                $('#clientes-table').DataTable({
+                                    language: {
+                                        url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'
+                                    }
+                                });
+                            });
+                        </script>
                     @else
                         <p class="text-center text-muted">No hay clientes registrados</p>
                     @endif

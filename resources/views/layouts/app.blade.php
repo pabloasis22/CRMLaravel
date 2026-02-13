@@ -29,6 +29,9 @@
 @section('content')
     @yield('content_body')
 @stop
+            <!-- jQuery y DataTables JS -->
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+            <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
 {{-- Create a common footer --}}
 
@@ -107,6 +110,10 @@
 <style>
     .ripple {
         position: absolute;
+            @push('css')
+            <link rel="stylesheet" href="{{ asset('css/custom-theme.css') }}">
+            <!-- DataTables CSS -->
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.6);
         transform: scale(0);

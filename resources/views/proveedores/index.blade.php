@@ -9,8 +9,6 @@
     </a>
 
     @if ($proveedores->count())
-        <!-- DataTables CSS -->
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
         <table id="proveedores-table" class="table table-striped">
             <thead>
                 <tr>
@@ -43,9 +41,6 @@
                 @endforeach
             </tbody>
         </table>
-        <!-- DataTables JS -->
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
         <script>
             $(document).ready(function() {
                 $('#proveedores-table').DataTable({
