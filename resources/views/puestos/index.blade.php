@@ -13,7 +13,9 @@
     @endif
 
     @if($puestos->count())
-        <table class="table table-striped">
+        <!-- DataTables CSS -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+        <table id="puestos-table" class="table table-striped">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -41,6 +43,18 @@
                 @endforeach
             </tbody>
         </table>
+        <!-- DataTables JS -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#puestos-table').DataTable({
+                    language: {
+                        url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'
+                    }
+                });
+            });
+        </script>
     @else
         <p class="alert alert-info">No hay altos cargos registrados</p>
     @endif

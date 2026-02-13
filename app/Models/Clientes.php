@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Clientes extends Model
 {
+
     protected $table = 'clientes';
     
     protected $fillable = [
@@ -16,5 +17,12 @@ class Clientes extends Model
         "direccion"
     ];
 
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
+
     public $timestamps = true;
+
 }
