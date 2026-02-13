@@ -5,7 +5,8 @@
     <h1>Altos Cargos</h1>
 
     <a href="{{ route('puestos.create') }}" class="btn btn-success mb-3">
-        <i class="fas fa-plus"></i> Crear Alto Cargo
+        <!-- Botón crear oculto en modo visual -->
+        <!-- <i class="fas fa-plus"></i> Crear Alto Cargo -->
     </a>
 
     @if(session('success'))
@@ -30,20 +31,20 @@
                         <td>{{ $puesto->descripcion ? \Illuminate\Support\Str::limit($puesto->descripcion, 60) : 'N/A' }}</td>
                         <td>
                             <a href="{{ route('puestos.show', $puesto->id) }}" class="btn btn-sm btn-info">Ver</a>
+                            <!-- Acciones ocultas en modo visual -->
+                            <!--
                             <a href="{{ route('puestos.edit', $puesto->id) }}" class="btn btn-sm btn-primary">Editar</a>
                             <form action="{{ route('puestos.destroy', $puesto->id) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar puesto?')">Eliminar</button>
                             </form>
+                            -->
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-        <div class="d-flex justify-content-center mt-3">
-            {{ $puestos->links() }}
-        </div>
         <script>
             $(document).ready(function() {
                 $('#puestos-table').DataTable({

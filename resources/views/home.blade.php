@@ -74,8 +74,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    <a href="{{ route('clientes.index') }}" class="btn btn-primary">Ver todos los clientes</a>
-                                    <a href="{{ route('clientes.create') }}" class="btn btn-success">Crear nuevo cliente</a>
+                                    <!-- Botones eliminados en modo navegación -->
                                 @else
                                     <p class="alert alert-info">No hay clientes registrados</p>
                                     <a href="{{ route('clientes.create') }}" class="btn btn-success">Crear primer cliente</a>

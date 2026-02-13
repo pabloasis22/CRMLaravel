@@ -14,7 +14,7 @@
                     <h3 class="card-title">Formulario de Edición</h3>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('clientes.update', $cliente->id) }}" method="POST">
+                    <form action="{{ route('clientes.update', $cliente->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -54,6 +54,15 @@
                             @enderror
                         </div>
 
+                        <div class="form-group">
+                            <label for="imagen">Foto</label>
+                            <input type="file" class="form-control-file" id="imagen" name="imagen" accept="image/*">
+                            @if($cliente->imagen)
+                                <div class="mt-2">
+                                    <img src="{{ asset('storage/' . $cliente->imagen) }}" alt="Foto actual" style="max-width: 150px;">
+                                </div>
+                            @endif
+                        </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Actualizar</button>
                             <a href="{{ route('clientes.index') }}" class="btn btn-secondary">Cancelar</a>

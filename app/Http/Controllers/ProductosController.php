@@ -25,9 +25,15 @@ class ProductosController extends Controller
             'descripcion' => 'nullable|string',
             'precio' => 'required|numeric|min:0',
             'stock' => 'nullable|integer|min:0',
+            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $producto = Productos::create($request->all());
+        $data = $request->all();
+        if ($request->hasFile('imagen')) {
+            $data['imagen'] = $request->file('imagen')->store('imagenes_productos', 'public');
+        }
+
+        $producto = Productos::create($data);
 
         return redirect()->route('productos.show', $producto)
                          ->with('success', 'Producto creado exitosamente.');
@@ -50,9 +56,15 @@ class ProductosController extends Controller
             'descripcion' => 'nullable|string',
             'precio' => 'required|numeric|min:0',
             'stock' => 'nullable|integer|min:0',
+            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $producto->update($request->all());
+        $data = $request->all();
+        if ($request->hasFile('imagen')) {
+            $data['imagen'] = $request->file('imagen')->store('imagenes_productos', 'public');
+        }
+
+        $producto->update($data);
 
         return redirect()->route('productos.show', $producto)
                          ->with('success', 'Producto actualizado exitosamente.');

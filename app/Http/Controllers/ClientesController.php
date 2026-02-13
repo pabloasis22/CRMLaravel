@@ -25,9 +25,15 @@ class ClientesController extends Controller
             'email' => 'required|email|unique:clientes,email',
             'telefono' => 'nullable|string|max:20',
             'direccion' => 'nullable|string|max:255',
+            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $cliente = Clientes::create($request->all());
+        $data = $request->all();
+        if ($request->hasFile('imagen')) {
+            $data['imagen'] = $request->file('imagen')->store('imagenes_clientes', 'public');
+        }
+
+        $cliente = Clientes::create($data);
 
         return redirect()->route('clientes.show', $cliente)
                  ->with('success', 'Cliente creado exitosamente.');
@@ -51,9 +57,15 @@ class ClientesController extends Controller
             'email' => 'required|email|unique:clientes,email,' . $cliente->id,
             'telefono' => 'nullable|string|max:20',
             'direccion' => 'nullable|string|max:255',
+            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $cliente->update($request->all());
+        $data = $request->all();
+        if ($request->hasFile('imagen')) {
+            $data['imagen'] = $request->file('imagen')->store('imagenes_clientes', 'public');
+        }
+
+        $cliente->update($data);
 
         return redirect()->route('clientes.index')
                          ->with('success', 'Cliente actualizado exitosamente.');

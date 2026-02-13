@@ -4,7 +4,8 @@
 <div class="container">
     <h1>Productos</h1>
 
-    <a href="{{ route('productos.create') }}" class="btn btn-success mb-3">Crear Producto</a>
+    <!-- Botón crear oculto en modo visual -->
+    <!-- Botón crear eliminado en modo navegación -->
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -16,6 +17,7 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
+                <th>Imagen</th>
                 <th>Precio</th>
                 <th>Stock</th>
                 <th>Acciones</th>
@@ -26,24 +28,25 @@
                 <tr>
                     <td>{{ $producto->id }}</td>
                     <td>{{ $producto->nombre }}</td>
+                    <td>
+                        @if($producto->imagen)
+                            <img src="{{ asset('storage/' . $producto->imagen) }}" alt="Imagen" style="max-width: 60px; max-height: 60px;">
+                        @else
+                            <span class="text-muted">Sin imagen</span>
+                        @endif
+                    </td>
                     <td>{{ number_format($producto->precio, 2) }}</td>
                     <td>{{ $producto->stock }}</td>
                     <td>
-                        <a href="{{ route('productos.show', $producto->id) }}" class="btn btn-sm btn-info">Ver</a>
-                        <a href="{{ route('productos.edit', $producto->id) }}" class="btn btn-sm btn-primary">Editar</a>
-                        <form action="{{ route('productos.destroy', $producto->id) }}" method="POST" style="display:inline-block;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar producto?')">Eliminar</button>
-                        </form>
+                        <!-- Acciones ocultas en modo visual -->
+                        <!--
+                        <!-- Acciones eliminadas en modo navegación -->
+                        -->
                     </td>
                 </tr>
             @endforeach
         </tbody>
         </table>
-    </div>
-    <div class="d-flex justify-content-center mt-3">
-        {{ $productos->links() }}
     </div>
     <script>
         $(document).ready(function() {

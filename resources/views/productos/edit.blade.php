@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <form action="{{ route('productos.update', $producto->id) }}" method="POST">
+    <form action="{{ route('productos.update', $producto->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -38,6 +38,15 @@
             <input type="number" class="form-control" id="stock" name="stock" value="{{ old('stock', $producto->stock) }}">
         </div>
 
+        <div class="form-group">
+            <label for="imagen">Imagen</label>
+            <input type="file" class="form-control-file" id="imagen" name="imagen" accept="image/*">
+            @if($producto->imagen)
+                <div class="mt-2">
+                    <img src="{{ asset('storage/' . $producto->imagen) }}" alt="Imagen actual" style="max-width: 150px;">
+                </div>
+            @endif
+        </div>
         <button type="submit" class="btn btn-primary">Guardar cambios</button>
     </form>
 </div>

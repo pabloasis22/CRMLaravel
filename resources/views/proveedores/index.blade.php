@@ -4,9 +4,7 @@
 <div class="container">
     <h1>Proveedores</h1>
 
-    <a href="{{ route('proveedores.create') }}" class="btn btn-success mb-3">
-        <i class="fas fa-plus"></i> Crear Proveedor
-    </a>
+        <!-- Botón crear eliminado en modo navegación -->
 
     @if ($proveedores->count())
         <table id="proveedores-table" class="table table-striped">
@@ -30,20 +28,15 @@
                         <td>{{ $proveedor->telefono ?? 'N/A' }}</td>
                         <td>
                             <a href="{{ route('proveedores.show', $proveedor->id) }}" class="btn btn-sm btn-info">Ver</a>
-                            <a href="{{ route('proveedores.edit', $proveedor->id) }}" class="btn btn-sm btn-warning">Editar</a>
-                            <form action="{{ route('proveedores.destroy', $proveedor->id) }}" method="POST" style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro?')">Eliminar</button>
-                            </form>
+                                <!-- Acciones ocultas en modo visual -->
+                                <!--
+                                <!-- Acciones eliminadas en modo navegación -->
+                                -->
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-        <div class="d-flex justify-content-center mt-3">
-            {{ $proveedores->links() }}
-        </div>
         <script>
             $(document).ready(function() {
                 $('#proveedores-table').DataTable({

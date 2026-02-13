@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <form action="{{ route('clientes.store') }}" method="POST">
+    <form action="{{ route('clientes.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="nombre">Nombre</label>
@@ -41,6 +41,10 @@
             <input type="text" class="form-control" id="direccion" name="direccion" value="{{ old('direccion') }}">
         </div>
 
+        <div class="form-group">
+            <label for="imagen">Foto</label>
+            <input type="file" class="form-control-file" id="imagen" name="imagen" accept="image/*">
+        </div>
         <button type="submit" class="btn btn-primary">Crear Cliente</button>
     </form>
 </div>

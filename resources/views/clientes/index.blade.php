@@ -4,9 +4,11 @@
 <div class="container">
     <h1>Clientes</h1>
 
-    <a href="{{ route('clientes.create') }}" class="btn btn-success mb-3">
-        <i class="fas fa-plus"></i> Crear Cliente
-    </a>
+    <!-- Botón crear eliminado en modo navegación -->
+        <!-- Botón crear oculto en modo visual -->
+        <!-- <a href="{{ route('clientes.create') }}" class="btn btn-success mb-3">
+            <i class="fas fa-plus"></i> Crear Cliente
+        </a> -->
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -19,6 +21,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
+                        <th>Foto</th>
                         <th>Email</th>
                         <th>Teléfono</th>
                         <th>Acciones</th>
@@ -29,6 +32,13 @@
                         <tr>
                             <td>{{ $cliente->id }}</td>
                             <td>{{ $cliente->nombre }}</td>
+                            <td>
+                                @if($cliente->imagen)
+                                    <img src="{{ asset('storage/' . $cliente->imagen) }}" alt="Foto" style="max-width: 60px; max-height: 60px;">
+                                @else
+                                    <span class="text-muted">Sin foto</span>
+                                @endif
+                            </td>
                             <td>{{ $cliente->email }}</td>
                             <td>{{ $cliente->telefono }}</td>
                             <td>
@@ -42,14 +52,15 @@
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>
+                                    <!-- Acciones ocultas en modo visual -->
+                                    <!--
+                                    <!-- Acciones eliminadas en modo navegación -->
+                                    -->
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
-        </div>
-        <div class="d-flex justify-content-center mt-3">
-            {{ $clientes->links() }}
         </div>
         <script>
             $(document).ready(function() {

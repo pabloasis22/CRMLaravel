@@ -14,7 +14,8 @@ class Clientes extends Model
         "apellido",
         "email",
         "telefono",
-        "direccion"
+        "direccion",
+        "imagen"
     ];
 
     protected $dates = [

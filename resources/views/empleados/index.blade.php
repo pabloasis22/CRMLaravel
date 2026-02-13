@@ -5,7 +5,8 @@
     <h1>Empleados</h1>
 
     <a href="{{ route('empleados.create') }}" class="btn btn-success mb-3">
-        <i class="fas fa-plus"></i> Crear Empleado
+        <!-- Botón crear oculto en modo visual -->
+        <!-- <i class="fas fa-plus"></i> Crear Empleado -->
     </a>
 
     @if(session('success'))
@@ -40,21 +41,12 @@
                             </span>
                         </td>
                         <td>
-                            <a href="{{ route('empleados.show', $empleado->id) }}" class="btn btn-sm btn-info">Ver</a>
-                            <a href="{{ route('empleados.edit', $empleado->id) }}" class="btn btn-sm btn-primary">Editar</a>
-                            <form action="{{ route('empleados.destroy', $empleado->id) }}" method="POST" style="display:inline-block;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar empleado?')">Eliminar</button>
-                            </form>
+                                <!-- Acciones eliminadas en modo navegación -->
                         </td>
                     </tr>
                 @endforeach
             </tbody>
             </table>
-        </div>
-        <div class="d-flex justify-content-center mt-3">
-            {{ $empleados->links() }}
         </div>
         <script>
             $(document).ready(function() {

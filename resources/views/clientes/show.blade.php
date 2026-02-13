@@ -15,6 +15,14 @@
                 </div>
                 <div class="card-body">
                     <dl class="row">
+                        <dt class="col-sm-3">Foto:</dt>
+                        <dd class="col-sm-9">
+                            @if($cliente->imagen)
+                                <img src="{{ asset('storage/' . $cliente->imagen) }}" alt="Foto" style="max-width: 200px;">
+                            @else
+                                <span class="text-muted">Sin foto</span>
+                            @endif
+                        </dd>
                         <dt class="col-sm-3">ID:</dt>
                         <dd class="col-sm-9">{{ $cliente->id }}</dd>
 
