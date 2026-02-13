@@ -20,14 +20,12 @@
                 <th>Imagen</th>
                 <th>Precio</th>
                 <th>Stock</th>
-                <th>Acciones</th>
+                <!-- <th>Acciones</th> -->
             </tr>
         </thead>
         <tbody>
             @foreach($productos as $producto)
-                <tr>
-                    <td>{{ $producto->id }}</td>
-                    <td>{{ $producto->nombre }}</td>
+                    <!-- Columna de acciones eliminada en modo navegación -->
                     <td>
                         @if($producto->imagen)
                             <img src="{{ asset('storage/' . $producto->imagen) }}" alt="Imagen" style="max-width: 60px; max-height: 60px;">

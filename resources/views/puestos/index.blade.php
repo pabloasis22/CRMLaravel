@@ -20,20 +20,10 @@
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Descripción</th>
-                    <th>Acciones</th>
+                    <!-- <th>Acciones</th> -->
                 </tr>
             </thead>
-            <tbody>
-                @foreach($puestos as $puesto)
-                    <tr>
-                        <td>{{ $puesto->id }}</td>
-                        <td>{{ $puesto->nombre }}</td>
-                        <td>{{ $puesto->descripcion ? \Illuminate\Support\Str::limit($puesto->descripcion, 60) : 'N/A' }}</td>
-                        <td>
-                            <a href="{{ route('puestos.show', $puesto->id) }}" class="btn btn-sm btn-info">Ver</a>
-                            <!-- Acciones ocultas en modo visual -->
-                            <!--
-                            <a href="{{ route('puestos.edit', $puesto->id) }}" class="btn btn-sm btn-primary">Editar</a>
+                        <!-- Columna de acciones eliminada en modo navegación -->
                             <form action="{{ route('puestos.destroy', $puesto->id) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')

@@ -24,14 +24,12 @@
                         <th>Foto</th>
                         <th>Email</th>
                         <th>Teléfono</th>
-                        <th>Acciones</th>
+                        <!-- <th>Acciones</th> -->
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($clientes as $cliente)
-                        <tr>
-                            <td>{{ $cliente->id }}</td>
-                            <td>{{ $cliente->nombre }}</td>
+                            <!-- Columna de acciones eliminada en modo navegación -->
                             <td>
                                 @if($cliente->imagen)
                                     <img src="{{ asset('storage/' . $cliente->imagen) }}" alt="Foto" style="max-width: 60px; max-height: 60px;">

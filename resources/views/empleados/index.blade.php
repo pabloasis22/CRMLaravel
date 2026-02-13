@@ -24,7 +24,7 @@
                     <th>Puesto</th>
                     <th>Salario</th>
                     <th>Estado</th>
-                    <th>Acciones</th>
+                    <!-- <th>Acciones</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -40,9 +40,7 @@
                                 {{ ucfirst($empleado->estado) }}
                             </span>
                         </td>
-                        <td>
-                                <!-- Acciones eliminadas en modo navegación -->
-                        </td>
+                        <!-- Columna de acciones eliminada en modo navegación -->
                     </tr>
                 @endforeach
             </tbody>

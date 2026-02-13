@@ -56,7 +56,6 @@
                                                 <th>Apellido</th>
                                                 <th>Email</th>
                                                 <th>Teléfono</th>
-                                                <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -67,9 +66,6 @@
                                                     <td>{{ $cliente->apellido }}</td>
                                                     <td>{{ $cliente->email }}</td>
                                                     <td>{{ $cliente->telefono ?? 'N/A' }}</td>
-                                                    <td>
-                                                        <a href="{{ route('clientes.show', $cliente->id) }}" class="btn btn-sm btn-info">Ver</a>
-                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>

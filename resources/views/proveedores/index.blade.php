@@ -15,14 +15,12 @@
                     <th>Contacto</th>
                     <th>Email</th>
                     <th>Teléfono</th>
-                    <th>Acciones</th>
+                    <!-- <th>Acciones</th> -->
                 </tr>
             </thead>
             <tbody>
                 @foreach ($proveedores as $proveedor)
-                    <tr>
-                        <td>{{ $proveedor->id }}</td>
-                        <td>{{ $proveedor->nombre }}</td>
+                        <!-- Columna de acciones eliminada en modo navegación -->
                         <td>{{ $proveedor->contacto ?? 'N/A' }}</td>
                         <td>{{ $proveedor->email }}</td>
                         <td>{{ $proveedor->telefono ?? 'N/A' }}</td>
