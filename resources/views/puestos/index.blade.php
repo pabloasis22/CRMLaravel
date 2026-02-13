@@ -41,6 +41,9 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="d-flex justify-content-center mt-3">
+            {{ $puestos->links() }}
+        </div>
         <script>
             $(document).ready(function() {
                 $('#puestos-table').DataTable({

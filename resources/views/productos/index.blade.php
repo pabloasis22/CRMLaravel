@@ -10,9 +10,8 @@
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-    <table id="productos-table" class="table table-striped">
+    <div class="table-responsive" style="max-height: 70vh; overflow-y: auto;">
+        <table id="productos-table" class="table table-striped">
         <thead>
             <tr>
                 <th>ID</th>
@@ -41,10 +40,11 @@
                 </tr>
             @endforeach
         </tbody>
-    </table>
-    <!-- DataTables JS -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+        </table>
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+        {{ $productos->links() }}
+    </div>
     <script>
         $(document).ready(function() {
             $('#productos-table').DataTable({

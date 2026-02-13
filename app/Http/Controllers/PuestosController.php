@@ -9,7 +9,7 @@ class PuestosController extends Controller
 {
     public function index()
     {
-        $puestos = Puestos::all();
+        $puestos = Puestos::paginate(10);
         return view('puestos.index', compact('puestos'));
     }
 
